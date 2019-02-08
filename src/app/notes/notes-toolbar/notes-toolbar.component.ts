@@ -11,21 +11,21 @@ import { NotesAddDialogComponent } from '../notes-add-dialog/notes-add-dialog.co
   styleUrls: ['./notes-toolbar.component.scss']
 })
 export class NotesToolbarComponent implements OnInit {
-  animal: string;
+  notes: string;
   name: string;
   constructor(public dialog: MatDialog) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(NotesAddDialogComponent, {
-      width: '250px',
-      data: { name: this.name, animal: this.animal }
+      width: "350px",
+      height: "280px",
+      data: { name: this.name, notes: this.notes }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
+      console.log('The dialog was closed', result);
+      this.notes = result;
     });
   }
-
 
   ngOnInit() {
   }
