@@ -6,13 +6,14 @@ import { MaterialModule } from './shared/material.module';
 import { NotesModule } from './notes/notes.module';
 import { NotesToolbarComponent } from './notes/notes-toolbar/notes-toolbar.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, MaterialModule, AppRoutingModule, BrowserAnimationsModule
+    BrowserModule, FormsModule, MaterialModule, AppRoutingModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
