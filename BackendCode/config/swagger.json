@@ -19,20 +19,23 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "": {
+    "/postNotes": {
       "post": {
         "tags": ["users"],
         "summary": "Save Notes",
         "description": "Save Notes",
         "parameters": [
           {
-            "name": "User Login",
-            "description": "User Login",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#definitions/DefSaveNotes"
-            }
+            "name": "user",
+            "type": "string",
+            "description": "type the name",
+            "in": "query"
+          },
+          {
+            "name": "notes",
+            "type": "string",
+            "description": "Enter the notes",
+            "in": "query"
           }
         ],
         "responses": {
@@ -43,28 +46,17 @@
         }
       }
     },
-    "/users/signup": {
-      "post": {
+    "/allNotes": {
+      "get": {
         "tags": ["users"],
         "summary": "create new user",
         "description": "create new user in the system",
-        "parameters": [
-          {
-            "name": "Create User",
-            "description": "User creation",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#definitions/Users"
-            }
-          }
-        ],
         "produces": ["application/json"],
         "responses": {
           "200": {
-            "description": "new client is created",
+            "description": "new notes is created",
             "schema": {
-              "$ref": "#definitions/Invoice"
+              "$ref": "#definitions/notesDbFormat"
             }
           }
         }
@@ -73,9 +65,9 @@
   },
   "definitions": {
     "DefSaveNotes": {
-      "required": ["name", "notes"],
+      "required": ["user", "notes"],
       "properties": {
-        "name": {
+        "user": {
           "type": "string"
         },
         "notes": {
@@ -83,13 +75,22 @@
         }
       }
     },
-    "UserSignUp": {
+    "notesDbFormat": {
       "properties": {
-        "email": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
           "type": "string"
         },
-        "password": {
+        "notes": {
           "type": "string"
+        },
+        "createdAt": {
+          "type": "timesstamp"
+        },
+        "updatedAt": {
+          "type": "timestamp"
         }
       }
     }
