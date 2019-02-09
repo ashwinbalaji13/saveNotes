@@ -42,3 +42,5 @@ testem.log
 Thumbs.db
 
 package-lock.json
+BackendCode/package-lock.json
+BackendCode/node_modules

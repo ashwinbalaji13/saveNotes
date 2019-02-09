@@ -1,0 +1,97 @@
+{
+  "title": "Invoice builder",
+  "description": "This is a invoice builder app.",
+  "license": {
+    "name": "Apache 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "version": "1.0.0",
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "users",
+      "description": "API for Users"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Save Notes",
+        "description": "Save Notes",
+        "parameters": [
+          {
+            "name": "User Login",
+            "description": "User Login",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#definitions/DefSaveNotes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": "#definitions/DefSaveNotes"
+          }
+        }
+      }
+    },
+    "/users/signup": {
+      "post": {
+        "tags": ["users"],
+        "summary": "create new user",
+        "description": "create new user in the system",
+        "parameters": [
+          {
+            "name": "Create User",
+            "description": "User creation",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#definitions/Users"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "new client is created",
+            "schema": {
+              "$ref": "#definitions/Invoice"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DefSaveNotes": {
+      "required": ["name", "notes"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "UserSignUp": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
