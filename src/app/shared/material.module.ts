@@ -8,15 +8,20 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule, MatSnackBar, MatSnackBarModule } from "@angular/material";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatTableModule } from "@angular/material/table";
+import { MatMenuModule } from "@angular/material/menu";
+
 const modules = [
-  MatToolbarModule,
   MatButtonModule,
   MatIconModule,
+  MatToolbarModule,
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
   ReactiveFormsModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTableModule,
+  MatMenuModule
 ];
 
 @NgModule({

@@ -6,9 +6,10 @@ import { MaterialModule } from "../shared/material.module";
 import { NotesAddDialogComponent } from "./notes-add-dialog/notes-add-dialog.component";
 import { FormsModule } from "@angular/forms";
 import { NotesService } from "./service/notes.service";
+import { NotesDetailsComponent } from './notes-details/notes-details.component';
 
 @NgModule({
-  declarations: [NotesToolbarComponent, NotesAddDialogComponent, NotesAddDialogComponent],
+  declarations: [NotesToolbarComponent, NotesAddDialogComponent, NotesAddDialogComponent, NotesDetailsComponent],
   imports: [CommonModule, FormsModule, NotesRoutingModule, MaterialModule],
   entryComponents: [NotesAddDialogComponent],
   providers: [NotesService]

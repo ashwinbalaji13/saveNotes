@@ -11,9 +11,9 @@ export class NotesService {
     let query = `${environment.apiUrl}/allNotes`;
     return this.httpClient.get<getNotes>(query);
   }
-  postNotes(body): Observable<getNotes> {
+  postNotes(body): Observable<getNotes[]> {
     // debugger;
     let query = `${environment.apiUrl}/postNotes`;
-    return this.httpClient.post<getNotes>(query, body);
+    return this.httpClient.post<getNotes[]>(query, body);
   }
 }

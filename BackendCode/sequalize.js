@@ -3,8 +3,8 @@ let psql;
 function psqlconnection() {
   return new Promise((resolve, reject) => {
     psql = new Sequelize(
-      //   "postgres://kvugnoqn:Iy7V6qx6g6MA6eBLSedADGQats5GE3V6@elmer.db.elephantsql.com:5432/kvugnoqn"
-      "postgres://postgres:admin@localhost:5432/postgres"
+      "postgres://kvugnoqn:Iy7V6qx6g6MA6eBLSedADGQats5GE3V6@elmer.db.elephantsql.com:5432/kvugnoqn"
+      // "postgres://postgres:admin@localhost:5432/postgres"
     );
     psql
       .authenticate()
