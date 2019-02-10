@@ -1,28 +1,51 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Inject } from "@angular/core";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from "@angular/material";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { NotesService } from "../service/notes.service";
 
 export interface NotesData {
   name: string;
   notes: string;
 }
 
-
 @Component({
-  selector: 'app-notes-add-dialog',
-  templateUrl: './notes-add-dialog.component.html',
-  styleUrls: ['./notes-add-dialog.component.scss']
+  selector: "app-notes-add-dialog",
+  templateUrl: "./notes-add-dialog.component.html",
+  styleUrls: ["./notes-add-dialog.component.scss"]
 })
 export class NotesAddDialogComponent implements OnInit {
-
-
+  notesForm: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<NotesAddDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: NotesData) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
+    private fb: FormBuilder,
+    private notesService: NotesService,
+    private snackbar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public data: NotesData
+  ) {}
+  postData() {
+    console.log(this.notesForm.value);
+    this.notesService.postNotes(this.notesForm.value).subscribe(
+      res => {
+        this.snackbar.open("Notes Added", "Success", {
+          duration: 2000
+        });
+        this.dialogRef.close();
+      },
+      err => {
+        this.errorHandler(err);
+      }
+    );
   }
+  onNoClick(): void {}
   ngOnInit() {
+    this.notesForm = this.fb.group({
+      user: ["", Validators.required],
+      notes: ["", Validators.required]
+    });
   }
-
+  errorHandler(mes) {
+    this.snackbar.open(mes, "Failed", {
+      duration: 10000
+    });
+  }
 }

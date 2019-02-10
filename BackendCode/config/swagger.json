@@ -26,16 +26,13 @@
         "description": "Save Notes",
         "parameters": [
           {
-            "name": "user",
-            "type": "string",
-            "description": "type the name",
-            "in": "query"
-          },
-          {
-            "name": "notes",
-            "type": "string",
-            "description": "Enter the notes",
-            "in": "query"
+            "name": "User Login",
+            "description": "User Login",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#definitions/DefSaveNotes"
+            }
           }
         ],
         "responses": {

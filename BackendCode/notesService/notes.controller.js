@@ -3,9 +3,10 @@ let { User } = require("./notes.model");
 let HttpServerCodes = require("http-status-codes");
 module.exports = {
   async createNotes(req, res) {
-    // force: true will drop the table if it already exists
-    let { notes, user } = req.query;
-    console.log(req.query);
+    // force: true will drop the table if it already exists'
+    console.log(req.body, " params ", req.query);
+    let { notes, user } = req.body;
+    // console.log(req.query);
     try {
       User.sync({ force: false }).then(async () => {
         //   // Table created

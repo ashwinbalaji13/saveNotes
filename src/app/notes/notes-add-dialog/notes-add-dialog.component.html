@@ -1,16 +1,25 @@
 <!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
 <div mat-dialog-content>
   <p>Please enter the notes you want to save</p>
-  <mat-form-field>
-    <!-- <input matInput [(ngModel)]="data.animal"> -->
-    <input matInput placeholder="Please enter your name">
-
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput placeholder="Please enter your notes" [(ngModel)]="data.notes" style="width:100%" cdkTextareaAutosize></textarea>
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)=" onNoClick() ">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.notes " cdkFocusInitial>Ok</button>
+  <form class="form-container" [formGroup]="notesForm" (ngSubmit)="postData()">
+    <mat-form-field>
+      <!-- <input matInput [(ngModel)]="data.animal"> -->
+      <input matInput placeholder="Please enter your name" formControlName="user" />
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Please enter your notes"
+        formControlName="notes"
+        style="width:100%"
+        cdkTextareaAutosize
+      ></textarea>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button type="submit" [disabled]="!notesForm.valid" color="accent">
+        Save
+      </button>
+      <button mat-raised-button type="reset">Reset</button>
+    </div>
+  </form>
 </div>
