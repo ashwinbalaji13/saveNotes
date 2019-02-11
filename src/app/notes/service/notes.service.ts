@@ -5,7 +5,7 @@ import { Notes, getNotes } from "../notes";
 import { environment } from "../../../environments/environment";
 @Injectable()
 export class NotesService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
   getNotes(): Observable<getNotes> {
     // debugger;
     let query = `${environment.apiUrl}/allNotes`;

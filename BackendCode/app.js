@@ -2,7 +2,7 @@ const express = require("express");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./config/swagger.json");
 const logger = require("morgan");
-
+const cors = require("cors");
 const psql = require("./sequalize.js");
 require("dotenv").config();
 
@@ -18,6 +18,7 @@ app.use(
     explorer: true
   })
 );
+app.use(cors());
 
 psql.psqlconnection().then(
   mes => {

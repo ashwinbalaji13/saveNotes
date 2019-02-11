@@ -2,12 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { NotesService } from "../service/notes.service";
 import { MatTableDataSource } from "@angular/material";
 import { getNotes } from "../notes";
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
 @Component({
   selector: "app-notes-details",
@@ -20,11 +14,11 @@ export class NotesDetailsComponent implements OnInit {
   dataSource;
   // dataSource = new MatTableDataSource<getNotes[]>();
 
-  constructor(private notesService: NotesService) {}
+  constructor(private notesService: NotesService) { }
 
   ngOnInit() {
     this.notesService.getNotes().subscribe(data => {
-      debugger;
+      // debugger;
       this.dataSource = data;
     });
   }
