@@ -7,9 +7,10 @@ import { NotesAddDialogComponent } from "./notes-add-dialog/notes-add-dialog.com
 import { FormsModule } from "@angular/forms";
 import { NotesService } from "./service/notes.service";
 import { NotesDetailsComponent } from './notes-details/notes-details.component';
+import { NotesViewComponent } from './notes-view/notes-view.component';
 
 @NgModule({
-  declarations: [NotesToolbarComponent, NotesAddDialogComponent, NotesAddDialogComponent, NotesDetailsComponent],
+  declarations: [NotesToolbarComponent, NotesAddDialogComponent, NotesAddDialogComponent, NotesDetailsComponent, NotesViewComponent],
   imports: [CommonModule, FormsModule, NotesRoutingModule, MaterialModule],
   entryComponents: [NotesAddDialogComponent],
   providers: [NotesService]

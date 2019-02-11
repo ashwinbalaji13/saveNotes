@@ -11,6 +11,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatTableModule } from "@angular/material/table";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const modules = [
   MatButtonModule,
@@ -23,7 +26,7 @@ const modules = [
   MatSnackBarModule,
   MatTableModule,
   MatMenuModule,
-  MatCardModule
+  MatCardModule, MatDividerModule, MatListModule, MatGridListModule
 ];
 
 @NgModule({

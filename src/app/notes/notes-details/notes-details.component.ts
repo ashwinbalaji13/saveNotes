@@ -4,6 +4,7 @@ import { MatTableDataSource, MatDialog, MatSnackBar } from "@angular/material";
 import { getNotes } from "../notes";
 import { NotesAddDialogComponent } from '../notes-add-dialog/notes-add-dialog.component';
 import { filter, remove } from "lodash";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-notes-details",
@@ -16,7 +17,7 @@ export class NotesDetailsComponent implements OnInit {
   dataSource;
   // dataSource = new MatTableDataSource<getNotes[]>();
 
-  constructor(private notesService: NotesService, public dialog: MatDialog, private snackbar: MatSnackBar, ) { }
+  constructor(private notesService: NotesService, public dialog: MatDialog, private snackbar: MatSnackBar, private route: Router) { }
   notes: string;
   name: string;
   openDialog(): void {
@@ -54,6 +55,9 @@ export class NotesDetailsComponent implements OnInit {
         this.errorHandler(data.mes);
       }
     });
+  }
+  viewNotes(id) {
+    this.route.navigate(["notes", "view", id]);
   }
   errorHandler(mes) {
     this.snackbar.open(mes, "Failed", {
