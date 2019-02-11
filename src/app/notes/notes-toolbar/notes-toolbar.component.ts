@@ -14,20 +14,20 @@ export class NotesToolbarComponent implements OnInit {
   notes: string;
   name: string;
   constructor(public dialog: MatDialog) { }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(NotesAddDialogComponent, {
-      width: "350px",
-      height: "280px",
-      data: { name: this.name, notes: this.notes }
-    });
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(NotesAddDialogComponent, {
+  //     width: "350px",
+  //     height: "280px",
+  //     data: { name: this.name, notes: this.notes }
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-      this.notes = result;
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed', result);
+  //     this.notes = result;
+  //   });
+// }
 
-  ngOnInit() {
-  }
+ngOnInit() {
+}
 
 }

@@ -2,10 +2,23 @@ const Sequelize = require("sequelize");
 let psql;
 function psqlconnection() {
   return new Promise((resolve, reject) => {
-    psql = new Sequelize(
-      "postgres://kvugnoqn:Iy7V6qx6g6MA6eBLSedADGQats5GE3V6@elmer.db.elephantsql.com:5432/kvugnoqn"
-      // "postgres://postgres:admin@localhost:5432/postgres"
-    );
+    psql = new Sequelize('kvugnoqn', 'kvugnoqn', 'Iy7V6qx6g6MA6eBLSedADGQats5GE3V6', {
+      host: 'elmer.db.elephantsql.com',
+      dialect: 'postgres',
+      operatorsAliases: false,
+
+      pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+      }
+
+    });
+    // psql = new Sequelize(
+    //   "postgres://kvugnoqn:Iy7V6qx6g6MA6eBLSedADGQats5GE3V6@elmer.db.elephantsql.com:5432/kvugnoqn"
+    //   // "postgres://postgres:admin@localhost:5432/postgres"
+    // );
     psql
       .authenticate()
       .then(() => {

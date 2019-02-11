@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Notes, getNotes } from "../notes";
+import { Notes, getNotes, deleteNotes } from "../notes";
 import { environment } from "../../../environments/environment";
 @Injectable()
 export class NotesService {
@@ -15,5 +15,10 @@ export class NotesService {
     // debugger;
     let query = `${environment.apiUrl}/postNotes`;
     return this.httpClient.post<getNotes[]>(query, body);
+  }
+  deleteNotes(id): Observable<deleteNotes> {
+    // debugger;
+    let query = `${environment.apiUrl}/deleteNotes`;
+    return this.httpClient.delete<deleteNotes>(`${query}?id=${id}`);
   }
 }

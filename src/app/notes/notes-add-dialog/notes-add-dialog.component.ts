@@ -21,7 +21,7 @@ export class NotesAddDialogComponent implements OnInit {
     private notesService: NotesService,
     private snackbar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: NotesData
-  ) {}
+  ) { }
   postData() {
     console.log(this.notesForm.value);
     this.notesService.postNotes(this.notesForm.value).subscribe(
@@ -29,14 +29,14 @@ export class NotesAddDialogComponent implements OnInit {
         this.snackbar.open("Notes Added", "Success", {
           duration: 2000
         });
-        this.dialogRef.close();
+        this.dialogRef.close(res);
       },
       err => {
         this.errorHandler(err);
       }
     );
   }
-  onNoClick(): void {}
+  onNoClick(): void { }
   ngOnInit() {
     this.notesForm = this.fb.group({
       user: ["", Validators.required],

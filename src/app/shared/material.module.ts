@@ -10,6 +10,7 @@ import { MatInputModule, MatSnackBar, MatSnackBarModule } from "@angular/materia
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatTableModule } from "@angular/material/table";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatCardModule } from '@angular/material/card';
 
 const modules = [
   MatButtonModule,
@@ -21,7 +22,8 @@ const modules = [
   ReactiveFormsModule,
   MatSnackBarModule,
   MatTableModule,
-  MatMenuModule
+  MatMenuModule,
+  MatCardModule
 ];
 
 @NgModule({
@@ -29,4 +31,4 @@ const modules = [
   imports: [CommonModule, [...[modules]]],
   exports: [[...[modules]]]
 })
-export class MaterialModule {}
+export class MaterialModule { }

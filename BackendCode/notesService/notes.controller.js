@@ -31,5 +31,22 @@ module.exports = {
         res.status(HttpServerCodes.INTERNAL_SERVER_ERROR).send(err);
       }
     );
+  },
+  async deleteNotes(req, res) {
+    console.log("delete notes", req.query);
+    User.destroy({
+      where: {
+        id: req.query.id
+      }
+    }).then((result) => {
+      if (result == 1) {
+        res.status(HttpServerCodes.OK).send({ mes: "success", status: 200 });
+      } else {
+        res.status(HttpServerCodes.NOT_FOUND).send({ mes: "Notes not found", status: HttpServerCodes.NOT_FOUND });
+      }
+    }, (err) => {
+      res.status(HttpServerCodes.INTERNAL_SERVER_ERROR).send({ mes: "Query error", status: HttpServerCodes.INTERNAL_SERVER_ERROR });
+
+    })
   }
 };

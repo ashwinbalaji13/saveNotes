@@ -11,3 +11,9 @@ export class getNotes {
   createdAt: string;
   updatedAt: string;
 }
+
+
+export class deleteNotes {
+  mes: string;
+  status: number;
+}
