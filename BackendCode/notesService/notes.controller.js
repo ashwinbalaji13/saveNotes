@@ -48,5 +48,20 @@ module.exports = {
       res.status(HttpServerCodes.INTERNAL_SERVER_ERROR).send({ mes: "Query error", status: HttpServerCodes.INTERNAL_SERVER_ERROR });
 
     })
+  },
+  async getNotesById(req, res) {
+    console.log("find notes by id", req.query);
+    User.findById(req.query.id).then((result) => {
+      if (result) {
+        res.status(HttpServerCodes.OK).send(result);
+      } else {
+        res.status(HttpServerCodes.NOT_FOUND).send({ mes: "Notes not found", status: HttpServerCodes.NOT_FOUND });
+      }
+    }, (err) => {
+      res.status(HttpServerCodes.INTERNAL_SERVER_ERROR).send({ mes: "Query error", status: HttpServerCodes.INTERNAL_SERVER_ERROR });
+
+    })
   }
+
+
 };
