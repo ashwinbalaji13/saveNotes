@@ -1,48 +1,83 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      One of three columns
-    </div>
-    <div class="col-sm-8">
-      One of three columns
-    </div>
-
+<!-- <div class="row">
+  <div class="col-sm-4">
+    One of three columns
   </div>
-  <div class="row">
-    <div class="col-sm-4">
-      One of three columns
-    </div>
-    <div class="col-sm-8">
-      One of three columns
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      One of three columns
-    </div>
-    <div class="col-sm-8">
-      One of three columns
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      One of three columns
-    </div>
-    <div class="col-sm-8">
-      One of three columns
-    </div>
-
+  <div class="col-sm-8">
+    One of three columns
   </div>
 </div>
-<div class="card">
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item">Name {{notes.user}}</li>
-      <li class="list-group-item">Notes {{notes.notes}}</li>
-      <li class="list-group-item">Created {{notes.createdAt}}</li>
-      <li class="list-group-item">Last Updated {{notes.updatedAt}}</li>
-    </ul>
+<div class="row">
+  <div class="col-sm-4">
+    One of three columns
+  </div>
+  <div class="col-sm-8">
+    One of three columns
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    One of three columns
+  </div>
+  <div class="col-sm-8">
+    One of three columns
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    One of three columns
+  </div>
+  <div class="col-sm-8">
+    One of three columns
+  </div>
+</div> -->
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4">
+              Name
+            </div>
+            <div class="col-sm-8">
+              {{ notes.user }}
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4">
+              Notes
+            </div>
+            <div class="col-sm-8">
+              {{ notes.notes }}
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4">
+              Created
+            </div>
+            <div class="col-sm-8">
+              {{ notes.createdAt }}
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4">
+              Last Updated
+            </div>
+            <div class="col-sm-8">
+              {{ notes.updatedAt }}
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-sm" style="margin-left:20px;margin-top:10px" (click)="goBack()">
+        Go Back
+      </button>
+    </div>
   </div>
 </div>
