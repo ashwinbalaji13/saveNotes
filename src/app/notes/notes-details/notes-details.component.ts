@@ -29,10 +29,12 @@ export class NotesDetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
-      this.notes = result;
-      this.dataSource.push(result);
-      this.dataSource = [...this.dataSource];
-      debugger;
+      if (result) {
+        this.notes = result;
+        this.dataSource.push(result);
+        this.dataSource = [...this.dataSource];
+
+      }
     });
   }
   ngOnInit() {
