@@ -1,4 +1,11 @@
 <mat-card>
+  <div class="table-container mat-elevation-z8" *ngIf="progressBar">
+    <div class="mat-elevation-z8">
+      <div class="loading-shade" *ngIf="progressBar">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+  </div>
   <button mat-raised-button color="primary" style="float:right" (click)="openDialog()" color="accent">+Add Notes</button>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.

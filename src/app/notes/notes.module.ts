@@ -8,11 +8,12 @@ import { FormsModule } from "@angular/forms";
 import { NotesService } from "./service/notes.service";
 import { NotesDetailsComponent } from './notes-details/notes-details.component';
 import { NotesViewComponent } from './notes-view/notes-view.component';
+import { ViewNotesResolverService } from './service/view-notes-resolver.service';
 
 @NgModule({
   declarations: [NotesToolbarComponent, NotesAddDialogComponent, NotesAddDialogComponent, NotesDetailsComponent, NotesViewComponent],
   imports: [CommonModule, FormsModule, NotesRoutingModule, MaterialModule],
   entryComponents: [NotesAddDialogComponent],
-  providers: [NotesService]
+  providers: [NotesService, ViewNotesResolverService]
 })
-export class NotesModule {}
+export class NotesModule { }

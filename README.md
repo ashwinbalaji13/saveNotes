@@ -8,7 +8,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## For Running Backend Code
 
-cd BackendCode/
 
-nodemon
+Step 1: cd BackendCode/
+
+Step 2: nodemon
 

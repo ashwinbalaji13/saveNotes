@@ -20,6 +20,7 @@ export class NotesDetailsComponent implements OnInit {
   constructor(private notesService: NotesService, public dialog: MatDialog, private snackbar: MatSnackBar, private route: Router) { }
   notes: string;
   name: string;
+  progressBar = true;
   openDialog(): void {
     const dialogRef = this.dialog.open(NotesAddDialogComponent, {
       width: "350px",
@@ -40,11 +41,16 @@ export class NotesDetailsComponent implements OnInit {
   ngOnInit() {
     this.notesService.getNotes().subscribe(data => {
       // debugger;
+      this.progressBar = false;
       this.dataSource = data;
+
     });
   }
   deleteNotes(id) {
+    this.progressBar = true;
+
     this.notesService.deleteNotes(id).subscribe(data => {
+      this.progressBar = false;
       if (data.status == 200) {
         const dataItems = filter(this.dataSource, function (currentObject) {
           return currentObject.id != id;
@@ -56,6 +62,8 @@ export class NotesDetailsComponent implements OnInit {
       } else {
         this.errorHandler(data.mes);
       }
+    }, () => {
+      this.progressBar = false;
     });
   }
   viewNotes(id) {

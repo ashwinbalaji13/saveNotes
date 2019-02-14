@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotesToolbarComponent } from './notes-toolbar/notes-toolbar.component';
 import { NotesDetailsComponent } from './notes-details/notes-details.component';
 import { NotesViewComponent } from './notes-view/notes-view.component';
+import { ViewNotesResolverService } from './service/view-notes-resolver.service';
 
 
 const routes: Routes = [
@@ -15,7 +16,10 @@ const routes: Routes = [
         component: NotesDetailsComponent
       }, {
         path: "view/:id",
-        component: NotesViewComponent
+        component: NotesViewComponent,
+        resolve: {
+          notesValue: ViewNotesResolverService
+        }
       }
     ]
   }]
