@@ -4,9 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [{
   path: 'notes',
   loadChildren: './notes/notes.module#NotesModule'
-}, {
+},
+{
+  path: 'login',
+  loadChildren: './login/login.module#LoginModule'
+},
+{
   path: '**',
-  redirectTo: 'notes'
+  redirectTo: 'login'
 }];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

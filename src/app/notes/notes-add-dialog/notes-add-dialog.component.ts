@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { NotesService } from "../service/notes.service";
+import { loginSession } from '../../login/service/login_session.service';
 
 export interface NotesData {
   name: string;
@@ -19,6 +20,7 @@ export class NotesAddDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<NotesAddDialogComponent>,
     private fb: FormBuilder,
     private notesService: NotesService,
+    private name: loginSession,
     private snackbar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: NotesData
   ) { }
@@ -38,8 +40,9 @@ export class NotesAddDialogComponent implements OnInit {
   }
   onNoClick(): void { }
   ngOnInit() {
+    console.log("name", this.name.username);
     this.notesForm = this.fb.group({
-      user: ["", Validators.required],
+      user: [this.name.username, Validators.required],
       notes: ["", Validators.required]
     });
   }
