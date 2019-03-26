@@ -8,11 +8,13 @@ import { NotesToolbarComponent } from "./notes/notes-toolbar/notes-toolbar.compo
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { LoginModule } from './login/login.module';
+import { loginSession } from './login/service/login_session.service';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, FormsModule, MaterialModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [BrowserModule, HttpClientModule, FormsModule, LoginModule, FormsModule, MaterialModule, AppRoutingModule, BrowserAnimationsModule],
+  providers: [loginSession],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -12,7 +12,7 @@ import { loginSession } from './service/login_session.service';
   imports: [
     CommonModule, FormsModule, LoginRoutingModule, MaterialModule
   ],
-  providers: [loginSession]
+  providers: []
 
 })
 export class LoginModule { }

@@ -15,6 +15,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   saveUserName() {
+    console.log("works", this.saveName.username);
+
     this.saveName.username = this.userName;
     console.log("works", this.saveName.username);
     this.router.navigate(['/notes']);
