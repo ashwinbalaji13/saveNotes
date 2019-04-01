@@ -9,7 +9,6 @@ import { NotesService } from "./service/notes.service";
 import { NotesDetailsComponent } from './notes-details/notes-details.component';
 import { NotesViewComponent } from './notes-view/notes-view.component';
 import { ViewNotesResolverService } from './service/view-notes-resolver.service';
-import { loginSession } from '../login/service/login_session.service';
 
 @NgModule({
   declarations: [NotesToolbarComponent, NotesAddDialogComponent, NotesAddDialogComponent, NotesDetailsComponent, NotesViewComponent],

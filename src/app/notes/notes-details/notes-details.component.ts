@@ -25,7 +25,7 @@ export class NotesDetailsComponent implements OnInit {
     const dialogRef = this.dialog.open(NotesAddDialogComponent, {
       width: "350px",
       height: "280px",
-      data: { name: this.name, notes: this.notes }
+      data: this.dataSource
     });
 
     dialogRef.afterClosed().subscribe(result => {

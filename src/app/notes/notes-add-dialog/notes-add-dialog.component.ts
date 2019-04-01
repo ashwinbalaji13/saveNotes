@@ -41,6 +41,7 @@ export class NotesAddDialogComponent implements OnInit {
   onNoClick(): void { }
   ngOnInit() {
     console.log("name", this.name.username);
+    console.log("notes data", this.data);
     this.notesForm = this.fb.group({
       user: [this.name.username, Validators.required],
       notes: ["", Validators.required]
