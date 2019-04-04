@@ -24,7 +24,10 @@ psql.psqlconnection().then(
   mes => {
     console.log("success:", mes);
     const { notesRouter } = require("./notesService/notes.router");
+    const { userRouter } = require("./user/user.router");
+
     app.use("/api", notesRouter);
+    app.use("/api/user", userRouter);
     app.use((req, res, next) => {
       const error = new Error("Not found");
       error.message = "Invalid route";

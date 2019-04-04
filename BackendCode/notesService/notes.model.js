@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const psql = require("../sequalize").getDb();
 // console.log("psql", psql);
-const User = psql.define("blah", {
+const User = psql.define("notes", {
   user: {
     type: Sequelize.STRING
   },
