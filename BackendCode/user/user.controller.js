@@ -6,7 +6,7 @@ module.exports = {
     async createUser(req, res) {
         // force: true will drop the table if it already exists'
         console.log(req.body, " params ", req.query);
-        let { notes, user } = req.body;
+        let { notes, name } = req.body;
         // console.log(req.query);
         try {
             // User.sync({ force: false }).then(async () => {
@@ -16,7 +16,7 @@ module.exports = {
             //         notes: notes
             //     });\
             User
-                .findOrCreate({ where: { username: user }, attributes: ['id', 'username'] })
+                .findOrCreate({ where: { username: name }, attributes: ['id', 'username'] })
                 .then(([user, created]) => {
                     let result = user.get({
                         plain: true
