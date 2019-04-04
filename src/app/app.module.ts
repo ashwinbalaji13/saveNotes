@@ -7,14 +7,17 @@ import { NotesModule } from "./notes/notes.module";
 import { NotesToolbarComponent } from "./notes/notes-toolbar/notes-toolbar.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoginModule } from './login/login.module';
 import { loginSession } from './login/service/login_session.service';
+import { HttpInterceptorService } from './login/service/http-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule, LoginModule, FormsModule, MaterialModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [loginSession],
+  providers: [loginSession, {
+    provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

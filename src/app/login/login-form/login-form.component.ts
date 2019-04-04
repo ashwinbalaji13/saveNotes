@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { loginSession } from '../service/login_session.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
+import { JwtService } from '../service/jwt.service';
 
 @Component({
   selector: 'app-login-form',
@@ -9,17 +11,32 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
   userName;
-  constructor(private saveName: loginSession, private router: Router) { }
+  constructor(private userDetails: loginSession, private jwtService: JwtService, private router: Router, private snackbar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
   saveUserName() {
-    console.log("works", this.saveName.username);
 
-    this.saveName.username = this.userName;
-    console.log("works", this.saveName.username);
-    this.router.navigate(['/notes']);
+    console.log("works", this.userDetails.username);
 
+    this.userDetails.username = this.userName;
+    console.log("works", this.userDetails.username);
+    this.userDetails.postName(this.userName).subscribe(
+      res => {
+        console.log("res", res);
+        this.jwtService.setToken(res.token);
+        this.router.navigate(['/notes']);
+      },
+      err => {
+        this.errorHandler(err);
+      });
+
+
+  }
+  errorHandler(mes) {
+    this.snackbar.open(mes, "Failed", {
+      duration: 10000
+    });
   }
 }
